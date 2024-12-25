@@ -34,3 +34,9 @@ CREATE TABLE `reservations` (
   `date_activity` date DEFAULT NULL,
   `time_activity` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Déchargement des données de la table `reservations`
+
+INSERT INTO `reservations` (`id`, `activityId`, `userId`, `date_activity`, `time_activity`) VALUES
+(170, 163, 56, '2022-12-20', '15:00:00'),
+(171, 158, 56, '2022-12-20', '01:00:00');
