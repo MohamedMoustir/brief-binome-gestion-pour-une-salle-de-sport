@@ -55,4 +55,15 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id_users`, `username`, `email`, `pass_word`, `Role`) VALUES
 (55, 'admin', 'admin@gmail.com', '$2y$10$AW3/KMMJvJDMgHJRg46czO7fJmql99eCM.WqUAbxWzo/ROFLb7dG6', 1),
-(56, 'moustir', 'itsmoustir@gmail.co
+(56, 'moustir', 'itsmoustir@gmail.com', '$2y$10$9tx60suV.wQfLX1CqdEuTOe8e4ajRuGhcePrxe2RUhCloGca2FjWO', 0);
+
+-- Index pour la table `activites`
+ALTER TABLE `activites`
+  ADD PRIMARY KEY (`id_activite`);
+
+
+-- Index pour la table `reservations`
+ALTER TABLE `reservations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `activityId` (`activityId`),
+  ADD KEY `userId` (`userId`);
