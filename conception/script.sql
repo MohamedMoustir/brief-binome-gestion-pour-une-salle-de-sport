@@ -111,3 +111,18 @@ COMMIT;
 DELETE FROM activites WHERE id_activite = 164;
 -- modification d'une activite
 UPDATE `activites` SET `Nom_activite`='natation',`Description_activite`='this is natation',`Capacite`=20,`date_debut`='2024/02/20',`date_fin`='2024/02/29',`Disponibilite`=1,`image_path`='imag.png' WHERE id_activite = 163;
+-1 afficher les réservations ont été confirmées dans le système 
+SELECT * FROM reservations WHERE status = 'confirmee';
+--2 afficher les capacité moyenne des activités proposées
+SELECT AVG(Capacite) FROM `activites` ;
+
+-- 
+SELECT users.username FROM `users` 
+JOIN reservations ON users.id_users= reservations.userId
+ WHERE Role = 0 GROUP by reservations.id;
+--  4
+SELECT Nom_activite ,COUNT(Nom_activite) FROM `activites`
+ JOIN 
+reservations ON activites.id_activite = reservations.activityId 
+GROUP BY Nom_activite 
+ORDER BY COUNT(Nom_activite) DESC LIMIT 3;
