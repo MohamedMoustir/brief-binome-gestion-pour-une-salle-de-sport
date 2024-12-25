@@ -50,3 +50,9 @@ CREATE TABLE `users` (
   `pass_word` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `Role` tinyint(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- Déchargement des données de la table `users`
+
+INSERT INTO `users` (`id_users`, `username`, `email`, `pass_word`, `Role`) VALUES
+(55, 'admin', 'admin@gmail.com', '$2y$10$AW3/KMMJvJDMgHJRg46czO7fJmql99eCM.WqUAbxWzo/ROFLb7dG6', 1),
+(56, 'moustir', 'itsmoustir@gmail.co
