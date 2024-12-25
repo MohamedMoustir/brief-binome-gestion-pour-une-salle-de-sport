@@ -40,3 +40,13 @@ CREATE TABLE `reservations` (
 INSERT INTO `reservations` (`id`, `activityId`, `userId`, `date_activity`, `time_activity`) VALUES
 (170, 163, 56, '2022-12-20', '15:00:00'),
 (171, 158, 56, '2022-12-20', '01:00:00');
+
+-- Structure de la table `users`
+
+CREATE TABLE `users` (
+  `id_users` int NOT NULL,
+  `username` varchar(20) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `pass_word` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `Role` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
