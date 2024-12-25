@@ -94,3 +94,20 @@ ALTER TABLE `reservations`
 -- AUTO_INCREMENT pour la table `users`
 ALTER TABLE `users`
   MODIFY `id_users` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+-- Contraintes pour les tables déchargées
+--
+
+
+-- Contraintes pour la table `reservations`
+
+ALTER TABLE `reservations`
+  ADD CONSTRAINT `reservations_ibfk_1` FOREIGN KEY (`activityId`) REFERENCES `activites` (`id_activite`) ON DELETE CASCADE,
+  ADD CONSTRAINT `reservations_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id_users`) ON DELETE CASCADE;
+COMMIT;
+
+
+-- suppression d'une activite
+DELETE FROM activites WHERE id_activite = 164;
+-- modification d'une activite
+UPDATE `activites` SET `Nom_activite`='natation',`Description_activite`='this is natation',`Capacite`=20,`date_debut`='2024/02/20',`date_fin`='2024/02/29',`Disponibilite`=1,`image_path`='imag.png' WHERE id_activite = 163;
