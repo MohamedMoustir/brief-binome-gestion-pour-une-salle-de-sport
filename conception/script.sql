@@ -24,3 +24,13 @@ INSERT INTO `activites` (`id_activite`, `Nom_activite`, `Description_activite`, 
 (161, 'Football', 'Compétitions de football en salle', 12, '2024-05-01', '2024-10-30', 1, 'images/football.jpg'),
 (163, 'Tennis', 'Cours de tennis pour débutants et avancés', 8, '2024-06-01', '2024-11-30', 1, 'images/tennis.jpg'),
 (164, 'Danse classique', 'Séances de danse classique', 20, '2024-01-20', '2024-10-01', 1, 'images/danse_classique.jpg');
+
+-- Structure de la table `reservations`
+
+CREATE TABLE `reservations` (
+  `id` int NOT NULL,
+  `activityId` int NOT NULL,
+  `userId` int NOT NULL,
+  `date_activity` date DEFAULT NULL,
+  `time_activity` time DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
