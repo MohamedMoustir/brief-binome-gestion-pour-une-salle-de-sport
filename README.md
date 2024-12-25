@@ -1,0 +1,1 @@
+concevoir une solution basée sur un schéma de base de données fourni. Ce projet doit intégrer une application des principes fondamentaux de la programmation orientée objet (POO) en PHP.
