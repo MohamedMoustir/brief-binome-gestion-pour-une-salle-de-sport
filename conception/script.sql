@@ -67,3 +67,30 @@ ALTER TABLE `reservations`
   ADD PRIMARY KEY (`id`),
   ADD KEY `activityId` (`activityId`),
   ADD KEY `userId` (`userId`);
+
+
+  -- Index pour la table `users`
+
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_users`);
+
+
+-- AUTO_INCREMENT pour les tables déchargées
+
+
+
+-- AUTO_INCREMENT pour la table `activites`
+
+ALTER TABLE `activites`
+  MODIFY `id_activite` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+
+
+-- AUTO_INCREMENT pour la table `reservations`
+
+ALTER TABLE `reservations`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=173;
+
+
+-- AUTO_INCREMENT pour la table `users`
+ALTER TABLE `users`
+  MODIFY `id_users` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
