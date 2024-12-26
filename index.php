@@ -1,5 +1,7 @@
 <?php
 require_once "navbar.php";
+require_once "./db/database.php";
+$db = new Database();
 
 ?>
  
