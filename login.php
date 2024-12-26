@@ -1,39 +1,7 @@
 
 <?php 
-// include '../db/connx.php';
-// session_start();
- 
 
-// if ($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['email']) && isset($_POST['password'])) {
-    
-//     $email = trim($_POST['email']);
-//     $password = trim($_POST['password']);
-//     echo "done";  
-//     if (empty( $email)||empty( $password)) {
 
-//     }else{
-//      $stmt ="SELECT email,pass_word,isAdmin FROM users WHERE email = '$email' ";
- 
-//      $result = $connx->query($stmt);
-//      if ($result->num_rows>0){
-//       $user = $result->fetch_assoc();
-//       $hachpassowrd= $user['pass_word'];
-//       if (password_verify($password ,$hachpassowrd)) {
-
-      
-//         # code...   
-//       if ($user['isAdmin']== '1'){
-//       header('location:../vues\dachbourd.php');
-//       }else {
-//         header('location:../vues/home.php');
-//       }
-
-//     }else {
-//       echo 'is not valde';
-//     }
-// }
-// }
-// }
 
 ?>
 
