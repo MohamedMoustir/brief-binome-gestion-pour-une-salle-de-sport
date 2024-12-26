@@ -2,21 +2,29 @@
 
 
 <?php 
-// include '../db/connx.php';
+// require_once "navbar.php";
+require_once "./db/database.php";
+require_once "./class/class_sports.php";
 
-// if (isset($_POST['username'])&&isset($_POST['email'])&&isset($_POST['password'])) {
-//     $username = $_POST['username'];
-//     $email = $_POST['email'];
-//     $passwords = password_hash($_POST['password'],PASSWORD_DEFAULT);
-//     if (empty( $username)||empty( $email)||empty( $passwords)) {
+$db = new Database();
 
-//     }else{
-//       $sql = "INSERT INTO  users(username,email,pass_word) VALUES ('$username','$email','$passwords')";
-//       mysqli_query($connx , $sql);
 
-//     }
-   
-// }
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username'] ?? null;
+    $email = $_POST['email'] ?? null;
+    $password = $_POST['password'] ?? null;
+    $role = $_POST['role'] ?? 0; 
+    $users = new users($username, $email, $password, $role);
+
+    if ($users->insertUsers()) {
+        echo "User inserted successfully.";
+    } else {
+        echo "Failed to insert user.";
+    }
+}
+
+ 
 
 ?>
 
