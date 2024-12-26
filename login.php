@@ -1,7 +1,28 @@
 
 <?php 
 
+require_once "./db/database.php";
+require_once ("./class/class_login.php");
 
+$db = new Database();
+
+
+   $password = $_POST['password'] ;
+    $email = $_POST['email'] ;
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   
+$users = new login($email,$password);
+// var_dump($users->IsertionLogin());
+
+    if ($users->IsertionLogin()) {
+        echo "User inserted successfully.";
+        
+    } else {
+        echo "Failed to insert user.";
+        
+    }
+}
 
 ?>
 

@@ -1,15 +1,15 @@
 <?php
 
-include '../db/connx.php';
+// include '../db/connx.php';
 ?>
-<?php  
+<?php
 
 // $count = "SELECT COUNT(*) AS count_users FROM users";
 //  $res = mysqli_query($connx,$count);
 //  $rowx = mysqli_fetch_assoc($res);
 
 ?>
-<?php  
+<?php
 
 // $coun = "SELECT COUNT(*) AS count_activ FROM activites";
 //  $resl =mysqli_query($connx,$coun);
@@ -18,24 +18,26 @@ include '../db/connx.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
 
-    <title>Document</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <title>Document</title>
 </head>
+
 <body>
-<div class=" bg-gray-50/50">
+  <div class=" bg-gray-50/50">
     <aside id="continer_dashboard"
       class=" block bg-gradient-to-br from-gray-800 to-gray-900 -translate-x-80 fixed inset-0 z-50 my-4 ml-4 h-[calc(100vh-32px)] w-72 rounded-xl transition-transform duration-300 xl:translate-x-0">
       <div class="relative border-b border-white/20">
         <a class="flex items-center gap-4 py-6 px-8" href="#/">
           <h6 class="block antialiased tracking-normal font-sans text-base font-semibold leading-relaxed text-white">
-             Dashboard</h6>
+            Dashboard</h6>
         </a>
 
-  <button  onclick=" closeDashboard()"
+        <button onclick=" closeDashboard()"
           class="middle  none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-8 max-w-[32px] h-8 max-h-[32px] rounded-lg text-xs text-white hover:bg-white/10 active:bg-white/30 absolute right-0 top-0 grid rounded-br-none rounded-tl-none xl:hidden"
           type="button">
           <span class="absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2">
@@ -69,7 +71,7 @@ include '../db/connx.php';
           </li>
           <li>
             <a class="" href="../vues\dachbourd.php">
-              <button onclick ="ajouteCards()"
+              <button onclick="ajouteCards()"
                 class="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize"
                 type="button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
@@ -142,7 +144,8 @@ include '../db/connx.php';
                     d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z"
                     clip-rule="evenodd"></path>
                 </svg>
-                <p onclick="removehidden()" class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">
+                <p onclick="removehidden()"
+                  class="block antialiased font-sans text-base leading-relaxed text-inherit font-medium capitalize">
                   all Activites </p>
               </button>
             </a>
@@ -153,7 +156,7 @@ include '../db/connx.php';
             <p class="block antialiased font-sans text-sm leading-normal text-white font-black uppercase opacity-75">
               auth pages</p>
           </li>
-        
+
         </ul>
       </div>
     </aside>
@@ -175,7 +178,8 @@ include '../db/connx.php';
                 </li>
                 <li
                   class="flex items-center text-blue-900 antialiased font-sans text-sm font-normal leading-normal cursor-pointer transition-colors duration-300 hover:text-blue-500">
-                  <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"><a href="../vues/home.php?id_users">home</a></p>
+                  <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"><a
+                      href="../vues/home.php?id_users">home</a></p>
                 </li>
               </ol>
             </nav>
@@ -207,7 +211,7 @@ include '../db/connx.php';
               </span>
             </button>
             <a href="#">
-            
+
             </a>
             <button
               class="relative middle none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-10 max-w-[40px] h-10 max-h-[40px] rounded-lg text-xs text-gray-500 hover:bg-blue-gray-500/10 active:bg-blue-gray-500/30"
@@ -256,10 +260,9 @@ include '../db/connx.php';
             <div class="p-4 text-right">
               <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Activites
               </p>
- 
+
               <h4
                 class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
-               <?php echo $rowm['count_activ']; ?></h4>
             </div>
             <div class="border-t border-blue-gray-50 p-4">
               <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
@@ -281,8 +284,8 @@ include '../db/connx.php';
               <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Today's Users
               </p>
               <h4
-                class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900"
-                id="nwe_usaer"><?php echo $rowx['count_users']?></h4>
+                class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
+              </h4>
             </div>
             <div class="border-t border-blue-gray-50 p-4">
               <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
@@ -290,7 +293,7 @@ include '../db/connx.php';
               </p>
             </div>
           </div>
-          
+
           <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
             <div
               class="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-orange-600 to-orange-400 text-white shadow-orange-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center">
@@ -313,14 +316,15 @@ include '../db/connx.php';
               </p>
             </div>
           </div>
-        </div>      
+        </div>
       </div>
-      
-    
 
-</div>
+
 
     </div>
-    <script src="../script/main.js"></script>
+
+  </div>
+  <script src="../script/main.js"></script>
 </body>
+
 </html>
