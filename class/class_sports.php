@@ -1,42 +1,44 @@
 <?php
+require_once __DIR__ . "/../db/database.php";
 
- class users 
+class users
 {
-
-    public $username;
-    public $email ;
+    protected $username;
+    protected $email;
     private $password;
-    private $Role; 
+    protected $role;
+    private $pdo;
 
-    function getuser(){
-
-    }
-    
-    function setuser(){
-        
-    }
-
-    function getpassword(){
-        
-    }
-
-    function setpassword(){
-        
+    public function __construct($username, $email, $password, $role)
+    {
+        $db = new Database();
+        $this->pdo = $db->getPdo();
+        $this->username = $username;
+        $this->email = $email;
+        $this->password = password_hash($password, PASSWORD_BCRYPT);
+        $this->role = $role;
     }
 
-    function getrole(){
-        
-    } 
-    function setrole(){
-        
+    public function insertUsers()
+    {
+        try {
+            $query = "INSERT INTO users (username, email, pass_word, Role) VALUES (?, ?, ?, ?)";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute([$this->username, $this->email, $this->password, $this->role]);
+            return true;
+        } catch (PDOException $e) {
+            echo "Insert failed: " . $e->getMessage();
+            return false;
+        }
     }
 
 }
 
- class Clinet{
- 
- }
- class admin{
+class Client extends users
+{
+}
 
- }
-
+class admin extends users
+{
+}
+?>
