@@ -5,9 +5,9 @@ class users
 {
     protected $username;
     protected $email;
-    private $password;
+    protected $password;
     protected $role;
-    private $pdo;
+    protected $pdo;
 
     public function __construct($username, $email, $password, $role)
     {
@@ -34,11 +34,5 @@ class users
 
 }
 
-class Client extends users
-{
-}
 
-class admin extends users
-{
-}
 ?>
