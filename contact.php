@@ -2,7 +2,7 @@
 require_once "navbar.php";
 
 ?>
-    <!-- end header section -->
+    <!-- end headeer section -->
     <!-- slider section -->
     <section class=" slider_section position-relative">
       <div class="container">
