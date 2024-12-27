@@ -1,8 +1,16 @@
 <?php
+session_start();
 require_once "navbar.php";
 require_once "./db/database.php";
-$db = new Database();
+require_once "./class/class_activites.php";
 
+
+
+
+$db = new Database();
+$activite = new activites();
+ $activites=$activite->affichageActivites();
+ 
 ?>
  
   <!-- end about section -->
@@ -31,79 +39,34 @@ $db = new Database();
             </h6>
           </div>
         </div>
+       
+       
+    <?php
+    foreach ($activites as $activit) :?>
         <div class="box">
-          <img src="images/s-2.jpg" alt="">
-          <h6 class="visible_heading">
-            FITNESS
-          </h6>
-          <div class="link_box">
-            <a href="">
-              <img src="images/link.png" alt="">
-            </a>
-            <h6>
-              FITNESS
+            <img src="images/s-1.jpg" alt="">
+            <h6 class="visible_heading">
+                <?php echo htmlspecialchars($activit['Nom_activite']); ?>
             </h6>
-          </div>
+            <div class="link_box">
+                <a href="reservation.php?getID=<?= htmlspecialchars($activit['id_activite']); ?>">
+                    <img src="images/link.png" alt="">
+                </a>
+                <h6>
+                    <?php echo htmlspecialchars($activit['Nom_activite']); ?>
+                </h6>
+            </div>
         </div>
-        <div class="box">
-          <img src="images/s-3.jpg" alt="">
-          <h6 class="visible_heading">
-            DYNAMIC STRENGTH TRAINING
-          </h6>
-          <div class="link_box">
-            <a href="">
-              <img src="images/link.png" alt="">
-            </a>
-            <h6>
-              DYNAMIC STRENGTH TRAINING
-            </h6>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/s-4.jpg" alt="">
-          <h6 class="visible_heading">
-            HEALTH
-          </h6>
-          <div class="link_box">
-            <a href="">
-              <img src="images/link.png" alt="">
-            </a>
-            <h6>
-              HEALTH
-            </h6>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/s-5.jpg" alt="">
-          <h6 class="visible_heading">
-            WORKOUT
-          </h6>
-          <div class="link_box">
-            <a href="">
-              <img src="images/link.png" alt="">
-            </a>
-            <h6>
-              WORKOUT
-            </h6>
-          </div>
-        </div>
-        <div class="box">
-          <img src="images/s-6.jpg" alt="">
-          <h6 class="visible_heading">
-            STRATEGIES
-          </h6>
-          <div class="link_box">
-            <a href="">
-              <img src="images/link.png" alt="">
-            </a>
-            <h6>
-              STRATEGIES
-            </h6>
-          </div>
-        </div>
+    <?php endforeach; ?>
+
+
+
+
+         
       </div>
     </div>
   </section>
+
 
   <!-- end service section -->
 
