@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
 <body>
   <!-- component -->
   <?php
-  // require_once "dashboard.php";
+  require_once "dashboard.php";
   ?>
 
   <!-- users -->

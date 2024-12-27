@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
   }
 }
 
-$activite = new activites();
+ $activite = new activites();
  $activites=$activite->affichageActivites();
 ?>
 

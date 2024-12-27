@@ -19,10 +19,9 @@ class Reservation {
         $this->pdo = $db->getPdo();
     }
 
-  
-    public function addReservation($activityId,$userId, $date_activity, $time_activity) {
+    public function addReservation($activityId,$userId,$date_activity,$time_activity) {
         try {
-            $sql = "INSERT INTO reservations ( activityId, userId, date_activity, time_activity)
+            $sql = "INSERT INTO reservations( activityId, userId, date_activity, time_activity)
                     VALUES (:activityId,:userId,:date_activity,:time_activity)";
             $stmt = $this->pdo->prepare($sql);
             
@@ -41,46 +40,42 @@ class Reservation {
         }
     }
 
-
     public function deleteReservation($id) {
         try {
             $sql = "DELETE FROM reservations WHERE id = :id";
             $stmt = $this->pdo->prepare($sql);
-
-         
             $stmt->bindParam(':id', $id);
-
-        
             $stmt->execute();
-            return "Réservation supprimée avec succès.";
+            
+        } catch (PDOException $e) {
+            return "Erreur : " . $e->getMessage();
+        }
+        
+    }
+
+
+    public function getReservationById() {
+        try {
+
+        $sql = "SELECT *
+        FROM reservations 
+        JOIN activites  ON reservations.activityId = activites.id_activite
+        JOIN users  ON reservations.userId = users.id_users 
+        ";
+             
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+
+            $reservation = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            if ($reservation) {
+                return $reservation;
+            } else {
+                return null;
+            }
         } catch (PDOException $e) {
             return "Erreur : " . $e->getMessage();
         }
     }
-
-    // public function getReservationById($id) {
-    //     try {
-    //         $sql = "SELECT * FROM reservations WHERE id = :id";
-    //         $stmt = $this->pdo->prepare($sql);
-    //         $stmt->bindParam(':id', $id);
-    //         $stmt->execute();
-
-    //         $reservation = $stmt->fetch(PDO::FETCH_ASSOC);
-    //         if ($reservation) {
-    //             $this->id = $reservation['id'];
-    //             $this->activity_id = $reservation['activity_id'];
-    //             $this->client_name = $reservation['client_name'];
-    //             $this->client_email = $reservation['client_email'];
-    //             $this->reservation_date = $reservation['reservation_date'];
-    //             $this->status = $reservation['status'];
-    //             return $this;
-    //         } else {
-    //             return null;  
-    //         }
-    //     } catch (PDOException $e) {
-    //         return "Erreur : " . $e->getMessage();
-    //     }
-    // }
 
   
     // public function getAllReservations() {
