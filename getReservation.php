@@ -79,17 +79,17 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
                             </button>
                             <button id="verifyBtn" class="btn-verify text-white bg-green-500 border p-2 pl-3">Verify</button>
                             <?php }?>
-                            <?php if ($row['status']== "annulee") {
-                                   $type='hidden'
+                            <?php if ($row['status']=="") {
+                                   $type='block'
                                 ?>
-                            <button class=" text-blue-500 hover:text-blue-700 transition duration-200 border px-2 py-1 rounded">
+                            <button class="  text-blue-500 hover:text-blue-700 transition duration-200 border px-2 py-1 rounded">
                                 
                                 <a href="#" onclick="showModifyForm(<?php echo $row['id']; ?>)">Modify</a>
                             </button>
                             <button class=" text-red-500 hover:text-red-700 transition duration-200 border px-2 py-1 rounded">
                                 <a href="getReservation.php?action=delete&id=<?php echo $row['id']; ?>">Cancel</a>
                             </button>
-                            <button id="verifyBtn" class="<?= $type ?> btn-verify text-white bg-green-500 border p-2 pl-3">Verify</button>
+                            
                             <?php }?>
                         </td>
                     </tr>

@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <section class="bg-gray-50 dark:bg-gray-900" style="background-image: url(); background-repeat: no-repeat; background-size: cover; ">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-white dark:text-white">
-       <img src="../imgs\Capture_d_écran_2024-12-11_090559-removebg-preview.png" alt=""class='w-36' >
+       <!-- <img src="../imgs\Capture_d_écran_2024-12-11_090559-removebg-preview.png" alt=""class='w-36' > -->
       </a>
       <div
         class="w-full bg-transparent rounded-lg shadow-lg dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
