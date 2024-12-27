@@ -100,7 +100,7 @@ if (isset($_POST['logout'])) {
                     <a class="nav-link" href="service.php">Services </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="getReservation.php">Contact Us</a>
+                  <a class="nav-link" href="getReservation.php">Reservation</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="login.php">Login</a>
