@@ -19,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
    $addReservation->addReservation($activityId,$userId,$date_activity,$time_activity);
   
   }
+
 }
 
  $activite = new activites();

@@ -35,6 +35,33 @@ class users
 
  
 
+    public function selectUsers()
+    {
+        try {
+            $query = "SELECT * FROM users";
+            $stmt = $this->pdo->prepare($query);
+            $stmt->execute();
+            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $users;
+        } catch (PDOException $e) {
+            echo "Select failed: " . $e->getMessage();
+            return false;
+        }
+    }
+    
+    public function deleteUser($id)
+{
+    try {
+       
+        $query = "DELETE FROM users WHERE id_users = ?";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute([$id]); 
+        return true;
+    } catch (PDOException $e) {
+        echo "Delete failed: " . $e->getMessage();
+        return false;
+    }
+}
 
     // Getters
     public function getUsername()

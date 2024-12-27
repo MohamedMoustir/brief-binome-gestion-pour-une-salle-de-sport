@@ -1,16 +1,23 @@
 
 
-
 <?php
 
 require_once "dashboard.php";
 require_once "./db/database.php";
 require_once "./class/class_activites.php";
 
-
 $activite = new activites();
 $activites=$activite->affichageActivites();
 
+if (isset($_GET['id_activite'])) {
+  $id = $_GET['id_activite'];
+  $activite = new activites();
+  $rows =$activite->deleteActivites($id);
+  if ($rows) {
+   header("Location: getallActivite.php?id_activite=" . $id);
+
+  }
+}
 ?>
 
 
@@ -85,7 +92,7 @@ $activites=$activite->affichageActivites();
  <tr class="odd:bg-blue-50">
             <td class="p-4 text-sm">
               <div class="flex items-center cursor-pointer w-max">
-                <img src='<?php echo  $activite['image_path'];?>' class="w-9 h-9 rounded-md shrink-0" />
+                <img src='<?php echo $activite['image_path'];?>' class="w-9 h-9 rounded-md shrink-0" />
                 <div class="ml-4">
                   <p class="text-sm text-black"><?php echo $activite['Nom_activite']; ?></p>
                   <p class="text-xs text-gray-500"><?php echo $activite['Description_activite']; ?></p>
@@ -112,8 +119,8 @@ $activites=$activite->affichageActivites();
                 </svg>
                 </a>
               </button>
-              <button class="mr-4" title="Delete">
-              <a href="../vues/all_Activites.php?id_activite=<?php echo $activite['id_activite'];?>">
+              <button class="mr-4" title="Delete" type="submit"> 
+              <a href="getallActivite.php?id_activite=<?php echo $activite['id_activite'];?>">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 fill-red-500 hover:fill-red-700" viewBox="0 0 24 24">
                   <path
                     d="M19 7a1 1 0 0 0-1 1v11.191A1.92 1.92 0 0 1 15.99 21H8.01A1.92 1.92 0 0 1 6 19.191V8a1 1 0 0 0-2 0v11.191A3.918 3.918 0 0 0 8.01 23h7.98A3.918 3.918 0 0 0 20 19.191V8a1 1 0 0 0-1-1Zm1-3h-4V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v2H4a1 1 0 0 0 0 2h16a1 1 0 0 0 0-2ZM10 4V3h4v1Z"

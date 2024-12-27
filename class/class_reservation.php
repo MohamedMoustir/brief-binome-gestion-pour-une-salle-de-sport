@@ -4,7 +4,6 @@
 require_once __DIR__ . "/../db/database.php";
 class Reservation {
   
-
     public $id;
     public $activityId;
     public $userId;
@@ -65,47 +64,14 @@ class Reservation {
              
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
-
             $reservation = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if ($reservation) {
+         
                 return $reservation;
-            } else {
-                return null;
-            }
+            
         } catch (PDOException $e) {
             return "Erreur : " . $e->getMessage();
         }
     }
 
   
-    // public function getAllReservations() {
-    //     try {
-    //         $sql = "SELECT * FROM reservations";
-    //         $stmt = $this->pdo->prepare($sql);
-    //         $stmt->execute();
-
-    //         $reservations = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //         return $reservations;
-    //     } catch (PDOException $e) {
-    //         return "Erreur : " . $e->getMessage();
-    //     }
-    // }
-
-    // // Méthode pour mettre à jour le statut d'une réservation
-    // public function updateReservationStatus($id, $status) {
-    //     try {
-    //         $sql = "UPDATE reservations SET status = :status WHERE id = :id";
-    //         $stmt = $this->pdo->prepare($sql);
-
-    //         // Lier les paramètres
-    //         $stmt->bindParam(':status', $status);
-    //         $stmt->bindParam(':id', $id);
-
-    //         // Exécuter la requête
-    //         $stmt->execute();
-    //         return "Statut de la réservation mis à jour avec succès.";
-    //     } catch (PDOException $e) {
-    //         return "Erreur : " . $e->getMessage();
-    //     }
-    // }
 }

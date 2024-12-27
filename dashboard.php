@@ -86,7 +86,7 @@
             </a>
           </li>
           <li>
-            <a class="" href="../vues\data_user.php">
+            <a class="" href="all_users.php">
               <button id="users_dash" onclick="users_dash()"
                 class="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize"
                 type="button">
@@ -118,7 +118,7 @@
             </a>
           </li>
           <li>
-            <a class="" href="../vues\resrvastion_users.php">
+            <a class="" href="all_reservation.php">
               <button
                 class="middle none font-sans font-bold center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 rounded-lg text-white hover:bg-white/10 active:bg-white/30 w-full flex items-center gap-4 px-4 capitalize"
                 type="button">

@@ -21,9 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
 }
 
 
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -42,9 +39,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
   <!-- component -->
   <?php
   require_once "dashboard.php";
-
-
-
 ?>
   <!-- ajoute -->
   <h1 class="text-4xl font-semibold leading-9 text-gray-800 dark:text-white ml-[340px] mb-[30px]">ajoute Activity</h1>
@@ -67,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
     </div>
 
     <div class="p-6 space-y-6">
-      <form method="POST">
+      <form method="POST" enctype="multipart/form-data">
         <div class="grid grid-cols-6 gap-6">
           <div class="col-span-6 sm:col-span-3">
             <label for="product-name" class="text-sm font-medium text-gray-900 block mb-2">Activity
