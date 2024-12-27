@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
             
           
             foreach($activites as $activite){
-               if ($activite['Disponibilite']==1) {
+               if ($activite['Disponibilite']== 1) {
 
                 echo '<option value="' . $activite['id_activite'] . '">' . $activite['Nom_activite'] . '</option>';
               }
