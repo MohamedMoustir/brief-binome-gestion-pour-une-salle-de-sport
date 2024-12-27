@@ -148,6 +148,17 @@ class activites
         }
     }
     
+    public function deleteReservation($id_activite) {
+        try {
+            $sql = "DELETE FROM activites WHERE activites = :activites";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':activites', $activites);
+            $stmt->execute();
+        } catch (PDOException $e) {
+            return "Erreur : " . $e->getMessage();
+        }
+        
+    }
 
     // Getters
     public function getNom_activite()

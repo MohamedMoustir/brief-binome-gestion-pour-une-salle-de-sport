@@ -7,8 +7,16 @@ require_once "./class/class_reservation.php";
 $addReservation = new Reservation();
 $result = $addReservation->getReservationById();
 
+if (isset($_GET['id'])) {
   $id = $_GET['id'];
-    $addReservation->deleteReservation($id);
+  $rows =$addReservation->deleteReservation($id);
+  if ($rows) {
+   header("Location: getReservation.php?id=" . $id);
+  exit; 
+  }
+ 
+}
+
   
 ?>
 
@@ -43,7 +51,7 @@ $result = $addReservation->getReservationById();
             <td class="px-6 py-4 text-gray-700"><?php echo $row['time_activity']; ?></td>
             <td class="px-6 py-4 text-gray-700"><?php echo $row['date_activity']; ?></td>
             <td class="px-6 py-4 text-center space-x-2">
-              <button type="submit" class="text-red-500 hover:text-red-700 transition duration-200 border">
+              <button type="submit" name="Annuler" class="text-red-500 hover:text-red-700 transition duration-200 border">
                 <a href="getReservation.php?id=<?= $row['id']?>">Annuler</a>
               </button>
             </td>
