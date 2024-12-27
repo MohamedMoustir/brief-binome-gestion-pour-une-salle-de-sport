@@ -141,6 +141,26 @@ class Activites {
         
     }
 
+
+
+
+
+    public function getTotalActivites() {
+        try {
+    
+            $sql = "SELECT COUNT(*) AS total_activites FROM activites";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+          $result = $stmt->fetch(PDO::FETCH_ASSOC);        
+            return $result['total_activites'];
+            
+        } catch (PDOException $e) {
+           
+            echo "Error: " . $e->getMessage();
+            return 0;
+        }
+
+    }
     // Getters
     public function getNom_activite()
     {

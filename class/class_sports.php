@@ -62,7 +62,21 @@ class users
         return false;
     }
 }
+public function getTotalusers() {
+    try {
 
+        $sql = "SELECT COUNT(*) AS total_users FROM users";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+      $result = $stmt->fetch(PDO::FETCH_ASSOC);        
+        return $result['total_users'];
+        
+    } catch (PDOException $e) {
+       
+        echo "Error: " . $e->getMessage();
+        return 0;
+    }
+}
     // Getters
     public function getUsername()
     {
@@ -104,10 +118,8 @@ class users
     {
         $this->role = $role;
     }
+
+
 }
-
-
-
-
 
 ?>

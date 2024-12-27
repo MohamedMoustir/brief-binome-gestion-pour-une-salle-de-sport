@@ -14,42 +14,31 @@ $activite = new activites();
   
   <!-- service section -->
 
-  <section class="service_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-          Our Services
-        </h2>
-      </div>
-      <div class="service_container">
-       
-       
-       
-    <?php
-    foreach ($activites as $activit) :?>
-        <div class="box">
-            <img src="<?=$activit['image_path']?>" alt="">
-            <h6 class="visible_heading">
-                <?php echo htmlspecialchars($activit['Nom_activite']); ?>
-            </h6>
-            <div class="link_box">
-                <a href="reservation.php?getID=<?= htmlspecialchars($activit['id_activite']); ?>">
-                    <img src="images/link.png" alt="">
-                </a>
-                <h6>
-                    <?php echo htmlspecialchars($activit['Nom_activite']); ?>
-                </h6>
-            </div>
+  <section class="service_section layout_padding py-16 bg-gray-100">
+    <div class="container mx-auto">
+        <div class="heading_container text-center mb-16">
+            <h2 class="text-4xl font-bold text-gray-800">Our Services</h2>
         </div>
-    <?php endforeach; ?>
-
-
-
-
-         
-      </div>
+        <div class="service_container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <?php foreach ($activites as $activit) : ?>
+                <div class="box bg-white shadow-lg rounded-lg overflow-hidden hover:transform hover:scale-105 transition-transform duration-300">
+                    <img src="<?=$activit['image_path']?>" alt="" class="w-full h-64 object-cover">
+                    <h6 class="visible_heading text-center text-2xl font-semibold text-gray-800 py-4">
+                        <?php echo htmlspecialchars($activit['Nom_activite']); ?>
+                    </h6>
+                    <div class="link_box flex justify-center items-center gap-2 bg-gray-200 py-4">
+                        <a href="reservation.php?getID=<?= htmlspecialchars($activit['id_activite']); ?>" class="inline-block">
+                            <img src="images/link.png" alt="" class="w-6 h-6">
+                        </a>
+                        <h6 class="text-blue-500 cursor-pointer hover:underline">
+                            <?php echo htmlspecialchars($activit['Nom_activite']); ?>
+                        </h6>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
-  </section>
+</section>
 
 
   <!-- end service section -->

@@ -8,24 +8,29 @@ $result = $addReservation->getReservationById();
 if (isset($_GET['Supprimer'])) {
   $id = $_GET['Supprimer'];
   $rows =$addReservation->deleteReservation($id);
-  if ($rows) {
+
    
-    echo "<script>
-              window.location = 'all_reservation.php?Supprimer=" . $id . "';
-            </script>";
+  header("Location: all_reservation.php");
+ 
+             
+
 }
-}
+
+
 
 if (isset($_GET['Confirme'])) {
   $id = $_GET['Confirme'];
-  $rows =$addReservation->deleteReservation($id);
+  $rows =$addReservation->modifystatus($id);
   if ($rows) {
    
     echo "<script>
               window.location = 'all_reservation.php?Supprimer=" . $id . "';
             </script>";
 }
+
 }
+
+
 ?>
 
 

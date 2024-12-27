@@ -7,6 +7,7 @@ $result = $selectUsers->selectUsers();
 if(isset($_GET['id_users'])) {
   $id=$_GET['id_users'];
   $deleteUser = $selectUsers->deleteUser($id);
+  
 }
 
 ?>

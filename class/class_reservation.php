@@ -80,8 +80,47 @@ class Reservation {
             return "Erreur : " . $e->getMessage();
         }
     }
-}
+
+    function modifystatus($id) {
+        try {
+            $sql = "UPDATE `reservations` 
+                    SET `status` = 'confirmee' 
+                    WHERE `id` = :id";
+            
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $result = $stmt->execute();
+            if ($result) {
+                echo "Reservation updated successfully.";
+            } else {
+                echo "Error: Reservation could not be updated.";
+            }
+    
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+    }
+    
 
   
+    
+    
+    public function getTotalReservation() {
+        try {
+    
+            $sql = "SELECT COUNT(*) AS total_reservation FROM reservations";
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+          $result = $stmt->fetch(PDO::FETCH_ASSOC);        
+            return $result['total_reservation'];
+            
+        } catch (PDOException $e) {
+           
+            echo "Error: " . $e->getMessage();
+            return 0;
+        }
+    }
+
+}
 
 

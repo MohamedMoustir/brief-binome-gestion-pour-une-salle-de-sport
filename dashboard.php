@@ -1,19 +1,21 @@
+
 <?php
+require_once "./db/database.php";
+require_once "./class/class_sports.php";
+require_once "./class/class_activites.php";
+require_once "./class/class_reservation.php";
 
-// include '../db/connx.php';
-?>
-<?php
 
-// $count = "SELECT COUNT(*) AS count_users FROM users";
-//  $res = mysqli_query($connx,$count);
-//  $rowx = mysqli_fetch_assoc($res);
 
-?>
-<?php
+$db = new Database();
+$users = new users();
+  $total = $users->getTotalusers();
 
-// $coun = "SELECT COUNT(*) AS count_activ FROM activites";
-//  $resl =mysqli_query($connx,$coun);
-//  $rowm = mysqli_fetch_assoc($resl);
+  $Activite = new Activites();
+  $totals = $Activite->getTotalActivites();
+
+  $Reservation = new Reservation();
+  $tota = $Reservation->getTotalReservation();
 
 ?>
 <!DOCTYPE html>
@@ -258,11 +260,14 @@
               </svg>
             </div>
             <div class="p-4 text-right">
-              <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Activites
+              <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">All Reservation
               </p>
 
               <h4
                 class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
+                <?=
+               $tota;
+            ?>
             </div>
             <div class="border-t border-blue-gray-50 p-4">
               <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
@@ -285,16 +290,24 @@
               </p>
               <h4
                 class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
+                <?=
+               $total;
+            ?>
               </h4>
             </div>
             <div class="border-t border-blue-gray-50 p-4">
               <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">
                 <strong class="text-green-500" id="yesterday_Clients">+3%</strong>&nbsp;than last month
               </p>
+              <h1>
+             
+              </h1>
+             
             </div>
           </div>
 
           <div class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 shadow-md">
+           
             <div
               class="bg-clip-border mx-4 rounded-xl overflow-hidden bg-gradient-to-tr from-orange-600 to-orange-400 text-white shadow-orange-500/40 shadow-lg absolute -mt-4 grid h-16 w-16 place-items-center">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"
@@ -305,10 +318,13 @@
               </svg>
             </div>
             <div class="p-4 text-right">
-              <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Sales</p>
+              <p class="block antialiased font-sans text-sm leading-normal font-normal text-blue-gray-600">Total activite</p>
               <h4
                 class="block antialiased tracking-normal font-sans text-2xl font-semibold leading-snug text-blue-gray-900">
-                $103,430</h4>
+                <?=
+               $totals;
+            ?>
+                </h4>
             </div>
             <div class="border-t border-blue-gray-50 p-4">
               <p class="block antialiased font-sans text-base leading-relaxed font-normal text-blue-gray-600">

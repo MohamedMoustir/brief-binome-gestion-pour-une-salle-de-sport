@@ -61,17 +61,36 @@ if (isset($_GET['action']) && isset($_GET['id'])) {
             <!-- Table Body -->
             <tbody class="divide-y divide-gray-200">
                 <?php foreach($result as $row): ?>
+
                     <tr class="hover:bg-blue-100">
                         <td class="px-6 py-4 text-gray-700"><?php echo $row['Nom_activite']; ?></td>
                         <td class="px-6 py-4 text-gray-700"><?php echo $row['time_activity']; ?></td>
                         <td class="px-6 py-4 text-gray-700"><?php echo $row['date_activity']; ?></td>
                         <td class="px-6 py-4 text-center space-x-2">
-                            <button class="text-blue-500 hover:text-blue-700 transition duration-200 border px-2 py-1 rounded">
+                        <?php if ($row['status']== "confirmee") {
+                                   $type='hidden'
+                                ?>
+                            <button class=" <?= $type ?> text-blue-500 hover:text-blue-700 transition duration-200 border px-2 py-1 rounded">
+                                
                                 <a href="#" onclick="showModifyForm(<?php echo $row['id']; ?>)">Modify</a>
                             </button>
-                            <button class="text-red-500 hover:text-red-700 transition duration-200 border px-2 py-1 rounded">
+                            <button class="<?= $type ?> text-red-500 hover:text-red-700 transition duration-200 border px-2 py-1 rounded">
                                 <a href="getReservation.php?action=delete&id=<?php echo $row['id']; ?>">Cancel</a>
                             </button>
+                            <button id="verifyBtn" class="btn-verify text-white bg-green-500 border p-2 pl-3">Verify</button>
+                            <?php }?>
+                            <?php if ($row['status']== "annulee") {
+                                   $type='hidden'
+                                ?>
+                            <button class=" text-blue-500 hover:text-blue-700 transition duration-200 border px-2 py-1 rounded">
+                                
+                                <a href="#" onclick="showModifyForm(<?php echo $row['id']; ?>)">Modify</a>
+                            </button>
+                            <button class=" text-red-500 hover:text-red-700 transition duration-200 border px-2 py-1 rounded">
+                                <a href="getReservation.php?action=delete&id=<?php echo $row['id']; ?>">Cancel</a>
+                            </button>
+                            <button id="verifyBtn" class="<?= $type ?> btn-verify text-white bg-green-500 border p-2 pl-3">Verify</button>
+                            <?php }?>
                         </td>
                     </tr>
                     <tr id="modifyForm_<?php echo $row['id']; ?>" style="display: none;">

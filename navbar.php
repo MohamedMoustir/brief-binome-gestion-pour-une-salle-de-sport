@@ -105,8 +105,8 @@ if (isset($_POST['logout'])) {
                   <li class="nav-item">
                     <a class="nav-link" href="login.php">Login</a>
                   </li>
-                  <form method="POST" action="">
-                    <button type="submit" name="logout" class="text-blue-800 border font bold p-2 rounded absoult">Logout</button>
+                  <form method="POST" action="login.php">
+                    <!-- <button type="submit" name="logout" class=" hidden text-blue-800 border font bold p-2 rounded absoult">Logout</button> -->
                 </form>
                 </ul>
                 <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
