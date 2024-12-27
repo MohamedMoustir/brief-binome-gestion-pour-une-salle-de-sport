@@ -179,7 +179,7 @@
                 <li
                   class="flex items-center text-blue-900 antialiased font-sans text-sm font-normal leading-normal cursor-pointer transition-colors duration-300 hover:text-blue-500">
                   <p class="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal"><a
-                      href="../vues/home.php?id_users">home</a></p>
+                      href="index.php?id_users">home</a></p>
                 </li>
               </ol>
             </nav>
