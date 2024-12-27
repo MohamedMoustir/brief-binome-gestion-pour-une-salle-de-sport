@@ -20,6 +20,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
 }
 }
 
+$id_activite = $_GET['id_activite'];
+
+
+$activite = new activites();
+$activites=$activite->affichageActivites($id_activite);
 ?>
 
 <!DOCTYPE html>

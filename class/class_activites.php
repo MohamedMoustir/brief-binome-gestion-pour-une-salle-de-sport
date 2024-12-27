@@ -11,6 +11,7 @@ class activites
     public $Disponibilite;
     public $upload_img;
     protected $pdo;
+    protected $id_activite;
 
     public function __construct( ) {
         $db = new Database();
@@ -92,9 +93,38 @@ class activites
         }
      }
 
+     public function affichageActivite($id_activite){
+
+        $stmt = $this->pdo->prepare('SELECT * FROM activites where id_activite = :id_activite');
+        $stmt->execute();
+        $activites = $stmt->fetch(PDO::FETCH_ASSOC);
+       return  $activites;
+         if ($activites) {
+            return " users found with the role: ";
+          return $activites;
+        } else {
+            return "No users found with the role: ";
+        }
+     }
  
 
 
+    //  public function updateReservationStatus($id, $status) {
+    //         try {
+    //             $sql = "UPDATE activites SET status = :status WHERE id = :id";
+    //             $stmt = $this->pdo->prepare($sql);
+    
+               
+    //             $stmt->bindParam(':status', $status);
+    //             $stmt->bindParam(':id', $id);
+    
+               
+    //             $stmt->execute();
+    //             return "Statut de la réservation mis à jour avec succès.";
+    //         } catch (PDOException $e) {
+    //             return "Erreur : " . $e->getMessage();
+    //         }
+    //     }
 
     // Getters
     public function getNom_activite()
