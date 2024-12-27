@@ -20,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
     header("Location: getReservation.php");
     exit();
   }
+
 }
 
 $activite = new activites();

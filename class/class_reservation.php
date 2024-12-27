@@ -1,7 +1,12 @@
 <?php 
 require_once __DIR__ . "/../db/database.php";
+<<<<<<< HEAD
 
 class Reservation {
+=======
+class Reservation {
+  
+>>>>>>> 77e650191560a3d00a5cc71e43f906c2f776f329
     public $id;
     public $activityId;
     public $userId;
@@ -55,18 +60,16 @@ class Reservation {
              
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute();
-
             $reservation = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            if ($reservation) {
+         
                 return $reservation;
-            } else {
-                return null;
-            }
+            
         } catch (PDOException $e) {
             return "Erreur : " . $e->getMessage();
         }
     }
 
+<<<<<<< HEAD
     public function modifyReservation($id, $newDate, $newTime) {
         try {
             $sql = "UPDATE reservations SET date_activity = :date, time_activity = :time WHERE id = :id";
@@ -80,3 +83,7 @@ class Reservation {
         }
     }
 }
+=======
+  
+}
+>>>>>>> 77e650191560a3d00a5cc71e43f906c2f776f329

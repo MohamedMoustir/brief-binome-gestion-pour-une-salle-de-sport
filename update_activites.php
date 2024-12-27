@@ -16,9 +16,9 @@ if (isset($_POST['submit'])) {
     $date_debut = $_POST['date_debut'];
     $date_fin = $_POST['date_fin'];
     $Disponibilite = $_POST['disponibilite'];
-
+    $upload_img = $_FILES['avatar'];
     $activite = new activites(); 
-    $rows = $activite->updateActivites($Nom_activite, $Description, $Capacite, $date_debut, $date_fin, $Disponibilite, $id_activite);
+    $rows = $activite->updateActivites($Nom_activite, $Description, $Capacite, $date_debut, $date_fin, $Disponibilite, $id_activite,$upload_img);
 
     if ($rows) {
         header("Location: update_activites.php?id_activite=" . $id_activite);
