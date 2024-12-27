@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
     $addReservation = new Reservation();
     $addReservation->addReservation($activityId, $userId, $date_activity, $time_activity);
 
-    // Redirect to the getReservation.php page after adding the reservation
+   
     header("Location: getReservation.php");
     exit();
   }
