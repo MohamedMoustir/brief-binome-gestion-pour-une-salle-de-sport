@@ -12,14 +12,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'] ?? null;
     $password = $_POST['password'] ?? null;
     $role = $_POST['role'] ?? 0;
-    $users = new users($username, $email, $password, $role);
+    $users = new users();
 
-
-    if ($users->insertUsers()) {
+    if ($users->insertUsers($username, $email, $password, $role)) {
         echo "User inserted successfully.";
     } else {
         echo "Failed to insert user.";
     }
+
 }
 
 

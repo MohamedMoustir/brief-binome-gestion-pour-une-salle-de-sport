@@ -1,3 +1,12 @@
+
+<?php
+if (isset($_POST['logout'])) {
+  session_unset();
+  session_destroy();
+  header("location:../vues/login.php");
+  exit();
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -91,11 +100,14 @@
                     <a class="nav-link" href="service.php">Services </a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="contact.php">Contact Us</a>
+                    <a class="nav-link" href="getReservation.php">Contact Us</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="login.php">Login</a>
                   </li>
+                  <form method="POST" action="">
+                    <button type="submit" name="logout" class="text-blue-800 border font bold p-2 rounded absoult">Logout</button>
+                </form>
                 </ul>
                 <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
                   <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>

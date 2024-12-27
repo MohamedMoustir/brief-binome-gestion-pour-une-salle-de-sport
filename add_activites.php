@@ -2,6 +2,7 @@
 require_once "./db/database.php";
 require_once "./class/class_activites.php";
 
+
 $db = new Database();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
@@ -13,18 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
     $date_debut = $_POST['date_debut'];
     $date_fin = $_POST['date_fin'];
     $Disponibilite = $_POST['disponibilite'];
-    $image_path = $_POST['activity-image'];
-
-    $activite = new activites($Nom_activite,$Description,$Capacite,$date_debut,$date_fin,$Disponibilite,$image_path);
-
-  
-  if ($activite->Insertactivites()) {
-    echo "User inserted successfully.";
-} else {
-    echo "Failed to insert user.";
+    $image_path = $_POST['avatar'];
+    $activite = new activites();
+    $activite->Insertactivites($Nom_activite,$Description,$Capacite,$date_debut,$date_fin,$Disponibilite,$image_path);
 }
 }
-  }
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
 <body>
   <!-- component -->
   <?php
-  require_once "dashboard.php";
+  // require_once "dashboard.php";
   ?>
 
   <!-- users -->
@@ -95,9 +90,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
               placeholder="e.g. 20">
           </div>
           <div class="col-span-6 sm:col-span-3">
-            <label for="activity-image" class="text-sm font-medium text-gray-900 block mb-2">Activity
-              Image</label>
-            <input type="file" name="activity-image" id="activity-image"
+            <label for="activity-image" class="text-sm font-medium text-gray-900 block mb-2">Activity Image</label>
+            <input type="file" name="avatar" id="activity-image"
               class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
               accept="image/*">
           </div>
