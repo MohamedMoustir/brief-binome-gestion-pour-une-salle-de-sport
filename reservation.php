@@ -1,30 +1,30 @@
-
 <?php 
- session_start();
+session_start();
 require_once "./db/database.php";
 require_once "./class/class_activites.php";
 require_once "./class/class_reservation.php";
-
 
 $userId = $_SESSION['id_users'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
   if (isset($_POST['id_activite']) && isset($_POST['time_activity']) && isset($_POST['date_activity'])) {
     
-   $activityId = $_POST['id_activite'];
-   $date_activity = $_POST['date_activity'];
-   $time_activity = $_POST['time_activity']; 
+    $activityId = $_POST['id_activite'];
+    $date_activity = $_POST['date_activity'];
+    $time_activity = $_POST['time_activity']; 
 
-   $addReservation = new Reservation();
-   $addReservation->addReservation($activityId,$userId,$date_activity,$time_activity);
-  
+    $addReservation = new Reservation();
+    $addReservation->addReservation($activityId, $userId, $date_activity, $time_activity);
+
+    // Redirect to the getReservation.php page after adding the reservation
+    header("Location: getReservation.php");
+    exit();
   }
 }
 
- $activite = new activites();
- $activites=$activite->affichageActivites();
+$activite = new activites();
+$activites = $activite->affichageActivites();
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -37,23 +37,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
 <body class="bg-gray-100">
 <!-- Navigation Bar -->
 <nav class="bg-[#006666] text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-lg font-bold">ENERGYM</div>
-            <div>
-                <a href="index.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Home</a>
-                <a href="about.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">About</a>
-                <a href="reservation.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Reservation</a>
-                <a href="register.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Registration</a>
-                <a href="login.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Login</a>
-            </div>
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="text-lg font-bold">ENERGYM</div>
+        <div>
+            <a href="index.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Home</a>
+            <a href="about.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">About</a>
+            <a href="reservation.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Reservation</a>
+            <a href="register.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Registration</a>
+            <a href="login.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Login</a>
         </div>
-    </nav>
-<?php 
-// require_once "../vues/nav.php"
-?>
+    </div>
+</nav>
 
-      <!-- Card 1 -->
-      <form class="w-screen bg-gray-50 py-12" method="POST">
+<!-- Card 1 -->
+<form class="w-screen bg-gray-50 py-12" method="POST">
   <!-- Section d'en-tête -->
   <div class="relative mx-auto max-w-screen-lg overflow-hidden rounded-t-xl bg-gradient-to-r from-blue-600 to-indigo-700 py-24 text-center shadow-xl my-[100px]">
     <h1 class="mt-2 px-8 text-4xl font-extrabold text-white md:text-5xl">Reserve Your Spot for Any Sport</h1>
@@ -76,14 +73,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
           class="w-full rounded-md border-2 border-gray-300 bg-white py-3 px-4 text-base font-medium text-gray-700 shadow focus:border-blue-500 focus:ring-2 focus:ring-blue-300 hover:bg-blue-50 transition-all duration-300"
         >
           <?php
-            
-          
             foreach($activites as $activite){
-               if ($activite['Disponibilite']== 1) {
-
+               if ($activite['Disponibilite'] == 1) {
                 echo '<option value="' . $activite['id_activite'] . '">' . $activite['Nom_activite'] . '</option>';
               }
-            
             }
           ?>
         </select>
@@ -132,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
     <!-- Bouton de soumission -->
     <div class="text-center">
       <input 
-      name="submit_btn"
+        name="submit_btn"
         type="submit" 
         value="Reserve Now" 
         class="inline-block w-64 rounded-full bg-blue-600 py-3 px-6 text-lg font-bold text-white shadow-lg transition-transform duration-300 ease-in-out hover:translate-y-1 hover:bg-blue-700"
@@ -141,12 +134,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
   </div>
 </form>
 
-
- <footer>
+<footer>
  <?php 
 // require_once "../vues/footer.php"
 ?>
- </footer>
+</footer>
 
 </body>
 </html>
