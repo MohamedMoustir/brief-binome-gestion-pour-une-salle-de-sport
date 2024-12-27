@@ -10,6 +10,7 @@ require_once "./class/class_activites.php";
 
 $activite = new activites();
 $activites=$activite->affichageActivites();
+
 ?>
 
 
@@ -99,7 +100,7 @@ $activites=$activite->affichageActivites();
             </td>
             <td class="p-4">
               <button class="mr-4" title="Edit">
-                <a href="add_activites.php?id_activite=<?php echo $activite['id_activite']; ?>">
+                <a href="update_activites.php?id_activite=<?php echo $activite['id_activite']; ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 fill-blue-500 hover:fill-blue-700"
                   viewBox="0 0 348.882 348.882">
                   <path

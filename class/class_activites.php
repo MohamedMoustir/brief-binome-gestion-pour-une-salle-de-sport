@@ -68,7 +68,7 @@ class activites
                     $stmt = $this->pdo->prepare($query);
                     $stmt->execute([$this->Nom_activite,$this->Description_activite, $this->Capacite, $this->date_debut, $this->date_fin, $this->Disponibilite, $this->upload_img]);
                     return true;
-                 
+                  
             } catch (PDOException $e) {
                 echo "Insert failed: " . $e->getMessage();
                 return false;
@@ -93,9 +93,11 @@ class activites
         }
      }
 
-     public function affichageActivite($id_activite){
+     public function getActivites($id_activite){
 
         $stmt = $this->pdo->prepare('SELECT * FROM activites where id_activite = :id_activite');
+        
+        $stmt->bindParam(':id_activite', $id_activite);
         $stmt->execute();
         $activites = $stmt->fetch(PDO::FETCH_ASSOC);
        return  $activites;
@@ -109,22 +111,43 @@ class activites
  
 
 
-    //  public function updateReservationStatus($id, $status) {
-    //         try {
-    //             $sql = "UPDATE activites SET status = :status WHERE id = :id";
-    //             $stmt = $this->pdo->prepare($sql);
+     public function updateActivites(
+        $Nom_activite,
+        $Description_activite,
+        $Capacite,
+        $date_debut,
+        $date_fin,
+        $Disponibilite,
+        $id_activite
+    ) {
+        try {
+            $sql = "UPDATE activites SET
+                Nom_activite = :Nom_activite,
+                Description_activite = :Description_activite,
+                Capacite = :Capacite,
+                date_debut = :date_debut,
+                date_fin = :date_fin,
+                Disponibilite = :Disponibilite
+                WHERE id_activite = :id_activite";
     
-               
-    //             $stmt->bindParam(':status', $status);
-    //             $stmt->bindParam(':id', $id);
+            $stmt = $this->pdo->prepare($sql);
     
-               
-    //             $stmt->execute();
-    //             return "Statut de la réservation mis à jour avec succès.";
-    //         } catch (PDOException $e) {
-    //             return "Erreur : " . $e->getMessage();
-    //         }
-    //     }
+            $stmt->bindParam(':Nom_activite', $Nom_activite, PDO::PARAM_STR);
+            $stmt->bindParam(':Description_activite', $Description_activite, PDO::PARAM_STR);
+            $stmt->bindParam(':Capacite', $Capacite, PDO::PARAM_INT);
+            $stmt->bindParam(':date_debut', $date_debut, PDO::PARAM_STR);
+            $stmt->bindParam(':date_fin', $date_fin, PDO::PARAM_STR);
+            $stmt->bindParam(':Disponibilite', $Disponibilite, PDO::PARAM_BOOL);
+            $stmt->bindParam(':id_activite', $id_activite, PDO::PARAM_INT);
+    
+            $stmt->execute();
+    
+            return "Statut de l'activité mis à jour avec succès.";
+        } catch (PDOException $e) {
+            return "Erreur : " . $e->getMessage();
+        }
+    }
+    
 
     // Getters
     public function getNom_activite()

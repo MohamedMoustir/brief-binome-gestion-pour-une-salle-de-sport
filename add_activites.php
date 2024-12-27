@@ -14,17 +14,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
     $date_debut = $_POST['date_debut'];
     $date_fin = $_POST['date_fin'];
     $Disponibilite = $_POST['disponibilite'];
-    $image_path = $_POST['avatar'];
+    $image_path = $_FILES['avatar'];
     $activite = new activites();
     $activite->Insertactivites($Nom_activite,$Description,$Capacite,$date_debut,$date_fin,$Disponibilite,$image_path);
 }
 }
 
-$id_activite = $_GET['id_activite'];
 
 
-$activite = new activites();
-$activites=$activite->affichageActivites($id_activite);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -43,11 +42,10 @@ $activites=$activite->affichageActivites($id_activite);
   <!-- component -->
   <?php
   require_once "dashboard.php";
-  ?>
-
-  <!-- users -->
 
 
+
+?>
   <!-- ajoute -->
   <h1 class="text-4xl font-semibold leading-9 text-gray-800 dark:text-white ml-[340px] mb-[30px]">ajoute Activity</h1>
 
@@ -74,18 +72,18 @@ $activites=$activite->affichageActivites($id_activite);
           <div class="col-span-6 sm:col-span-3">
             <label for="product-name" class="text-sm font-medium text-gray-900 block mb-2">Activity
               Name</label>
-            <input type="text" name="Nom_activite" id="product-name"
+            <input type="text" name="Nom_activite" id="product-name  " 
               class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
               placeholder="Yoga, Zumba, etc.">
           </div>
           <div class="col-span-6 sm:col-span-3">
             <label for="date_debut" class="text-sm font-medium text-gray-900 block mb-2">Start Date</label>
-            <input type="date" name="date_debut" id="date_debut"
+            <input type="date" name="date_debut" id="date_debut" 
               class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5">
           </div>
           <div class="col-span-6 sm:col-span-3">
             <label for="date_fin" class="text-sm font-medium text-gray-900 block mb-2">End Date</label>
-            <input type="date" name="date_fin" id="date_fin"
+            <input type="date" name="date_fin" id="date_fin" 
               class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5">
           </div>
           <div class="col-span-6 sm:col-span-3">
@@ -96,21 +94,21 @@ $activites=$activite->affichageActivites($id_activite);
           </div>
           <div class="col-span-6 sm:col-span-3">
             <label for="activity-image" class="text-sm font-medium text-gray-900 block mb-2">Activity Image</label>
-            <input type="file" name="avatar" id="activity-image"
+            <input type="file" name="avatar" id="activity-image" 
               class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
               accept="image/*">
           </div>
           <div class="col-span-full">
             <label for="description" class="text-sm font-medium text-gray-900 block mb-2">Activity
-              Description</label>
-            <textarea id="description" name="description" rows="6"
+              Description</label> 
+            <input id="description" name="description" rows="6" type="text" 
               class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-4"
-              placeholder="Enter a description of the activity"></textarea>
+              placeholder="Enter a description of the activity">
           </div>
           <!-- Disponibilité -->
           <div class="col-span-6 sm:col-span-3">
             <label for="disponibilite" class="text-sm font-medium text-gray-900 block mb-2">Availability</label>
-            <select name="disponibilite" id="disponibilite"
+            <select name="disponibilite" id="disponibilite"  
               class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5">
               <option value="1">Available</option>
               <option value="2">Not Available</option>
