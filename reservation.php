@@ -25,18 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
  $activites=$activite->affichageActivites();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
 
-    <title>Document</title>
-</head>
-
-
-<body>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +35,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit_btn'])) {
     <title>Sports Facility Booking</title>
 </head>
 <body class="bg-gray-100">
-
+<!-- Navigation Bar -->
+<nav class="bg-[#006666] text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-lg font-bold">ENERGYM</div>
+            <div>
+                <a href="index.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Home</a>
+                <a href="about.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">About</a>
+                <a href="reservation.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Reservation</a>
+                <a href="register.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Registration</a>
+                <a href="login.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Login</a>
+            </div>
+        </div>
+    </nav>
 <?php 
 // require_once "../vues/nav.php"
 ?>

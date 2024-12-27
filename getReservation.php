@@ -31,7 +31,19 @@ if (isset($_GET['id'])) {
 
 
 <body>
-       
+        <!-- Navigations Bar -->
+   <nav class="bg-[#006666] text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-lg font-bold">ENERGYM</div>
+            <div>
+                <a href="index.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Home</a>
+                <a href="about.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">About</a>
+                <a href="reservation.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Reservation</a>
+                <a href="register.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Registration</a>
+                <a href="login.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Login</a>
+            </div>
+        </div>
+    </nav>
   <div class="overflow-x-auto mb-[300px] mt-[100px]">
     <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
       <!-- Table Header -->

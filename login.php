@@ -26,8 +26,6 @@ $users = new login($email,$password);
 
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,6 +39,19 @@ $users = new login($email,$password);
 </head>
 
 <body >
+   <!-- Navigation Bar -->
+   <nav class="bg-[#006666] text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-lg font-bold">ENERGYM</div>
+            <div>
+                <a href="index.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Home</a>
+                <a href="about.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">About</a>
+                <a href="reservation.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Reservation</a>
+                <a href="register.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Registration</a>
+                <a href="login.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Login</a>
+            </div>
+        </div>
+    </nav>
   <section class="bg-gray-50 dark:bg-gray-900" style="background-image: url(); background-repeat: no-repeat; background-size: cover; ">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-white dark:text-white">
@@ -84,7 +95,7 @@ $users = new login($email,$password);
               class=" w-full inline-block pt-2 pr-2 pb-2 pl-2 my-8 text-xl font-medium text-center text-white bg-[#006666]
               rounded-lg transition duration-200  ease">Sign in</button>
             <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-              Don’t have an account yet? <a href="<?php echo '../vues\Rojester.php' ?>"
+              Don’t have an account yet? <a href="<?php echo 'register.php' ?>"
                 class="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>
             </p>
           </form>

@@ -1,11 +1,8 @@
 <?php
-// require_once "navbar.php";
 require_once "./db/database.php";
 require_once "./class/class_sports.php";
 
 $db = new Database();
-
-
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'] ?? null;
@@ -15,17 +12,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $users = new users();
 
     if ($users->insertUsers($username, $email, $password, $role)) {
-        echo "User inserted successfully.";
+        // Redirect to login page after successful registration
+        header('Location: login.php');
+        exit;
     } else {
         echo "Failed to insert user.";
     }
-
 }
-
-
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,15 +32,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body class=" ">
+    <!-- Navigation Bar -->
+    <nav class="bg-[#006666] text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-lg font-bold">ENERGYM</div>
+            <div>
+                <a href="index.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Home</a>
+                <a href="about.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">About</a>
+                <a href="reservation.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Reservation</a>
+                <a href="register.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Registration</a>
+                <a href="login.php" class="px-3 py-2 rounded hover:bg-[#004d4d]">Login</a>
+            </div>
+        </div>
+    </nav>
+
     <section class="bg-white dark:bg-gray-900"
         style="background-image: url(); background-repeat: no-repeat; background-size: cover;">
         <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <img src="../imgs\Capture_d_écran_2024-12-11_090559-removebg-preview.png" alt="" class='w-36'>
+            <img src="../imgs/Capture_d_écran_2024-12-11_090559-removebg-preview.png" alt="" class='w-36'>
             <div
                 class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                    <h1
-                        class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                    <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                         Create an account
                     </h1>
                     <form class="space-y-4 md:space-y-6" action="" method="POST">
@@ -83,8 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </div>
                         </div>
                         <button type="submit" id="btnRojester" class="w-full inline-block pt-2 pr-2 pb-2 pl-2 my-8 text-xl font-medium text-center text-white bg-[#006666]
-                        rounded-lg transition duration-200  ease"><a href="<?php echo '../vues/login.php'; ?>">Create an
-                                account</a></button>
+                        rounded-lg transition duration-200 ease">Create an account</button>
                         <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                             Already have an account? <a href="#"
                                 class="font-medium text-primary-600 hover:underline dark:text-primary-500">Login

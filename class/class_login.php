@@ -41,7 +41,7 @@ class login extends users
             $_SESSION['Role'] = $user->Role;
 
             if ($user->Role == 0) {
-              header('Location:index.php');
+              header('Location:getreservation.php');
               exit();
             } else {
               header('Location:dashboard.php');
