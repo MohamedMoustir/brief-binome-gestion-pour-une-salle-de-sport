@@ -1,7 +1,7 @@
 <?php
 define('HOST', 'localhost');
 define('USER', 'root');
-define('PASSWORD', 'root');
+define('PASSWORD','');
 define('DATABASE', 'all_sports');
 
 class Database
